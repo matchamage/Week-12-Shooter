@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float stopYPositionUpper = 0f;
     private float stopYPositionLower = -4.47f;
 
+
     void Start()
     {
         playerSpeed = 8f;
@@ -37,4 +38,13 @@ public class Player : MonoBehaviour
         newPosition.y = clampedY;
         transform.position = newPosition;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+        ScoreManager.Instance.AddScore(1);
+        Destroy(other.gameObject);
+        }
+    }
 }
+
