@@ -7,8 +7,8 @@ public class CoinSpawner : MonoBehaviour
     public GameObject coinPrefab;
     public float spawnInterval = 2f;
     public float disappearDelay = 3f;
-    public Vector2 spawnAreaMin = new Vector2(-8f, -4f); // Adjust as needed
-    public Vector2 spawnAreaMax = new Vector2(8f, 4f);  // Adjust as needed
+    public Vector2 spawnAreaMin = new Vector2(-8f, -4f);
+    public Vector2 spawnAreaMax = new Vector2(8f, 4f);  
 
     private float timer;
 
@@ -29,11 +29,11 @@ public class CoinSpawner : MonoBehaviour
             Vector3 randomPosition = new Vector3(
                 Random.Range(spawnAreaMin.x, spawnAreaMax.x),
                 Random.Range(spawnAreaMin.y, spawnAreaMax.y),
-                0f // Assuming 2D
+                0f 
             );
 
             GameObject spawnedCoin = Instantiate(coinPrefab, randomPosition, Quaternion.identity);
-            Destroy(spawnedCoin, disappearDelay); // Destroy after a delay
+            Destroy(spawnedCoin, disappearDelay);
         }
         else
         {
